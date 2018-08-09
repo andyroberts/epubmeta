@@ -1,29 +1,29 @@
 require 'spec_helper'
 
-describe EPUBInfo::Models::Cover do
+describe EPUBMeta::Models::Cover do
   describe '#new' do
     context 'EPUB2' do
       context 'without cover' do
         it 'should return nil' do
           path = 'spec/support/binary/nocover_epub2.epub'
-          parser = EPUBInfo::Parser.parse(path)
-          EPUBInfo::Models::Cover.new(parser).should be_nil
+          parser = EPUBMeta::Parser.parse(path)
+          EPUBMeta::Models::Cover.new(parser).should be_nil
         end
       end
 
       context 'with missing cover image file' do
         it 'should return nil' do
           path = 'spec/support/binary/missingcoverfile_epub2.epub'
-          parser = EPUBInfo::Parser.parse(path)
-          EPUBInfo::Models::Cover.new(parser).should be_nil
+          parser = EPUBMeta::Parser.parse(path)
+          EPUBMeta::Models::Cover.new(parser).should be_nil
         end
       end
 
       context 'with cover' do
         subject do
           path = 'spec/support/binary/metamorphosis_epub2.epub'
-          parser = EPUBInfo::Parser.parse(path)
-          EPUBInfo::Models::Cover.new(parser)
+          parser = EPUBMeta::Parser.parse(path)
+          EPUBMeta::Models::Cover.new(parser)
         end
 
         its(:content_type) { should == 'image/jpeg' }
@@ -45,8 +45,8 @@ describe EPUBInfo::Models::Cover do
       context 'with cover in root' do
         subject do
           path = 'spec/support/binary/coverinroot_epub2.epub'
-          parser = EPUBInfo::Parser.parse(path)
-          EPUBInfo::Models::Cover.new(parser)
+          parser = EPUBMeta::Parser.parse(path)
+          EPUBMeta::Models::Cover.new(parser)
         end
 
         it 'should have correct File' do
@@ -61,8 +61,8 @@ describe EPUBInfo::Models::Cover do
     context 'with "img-bookcover-jpeg" cover id' do
       subject do
         path = 'spec/support/binary/illustrations_epub2.epub'
-        parser = EPUBInfo::Parser.parse(path)
-        EPUBInfo::Models::Cover.new(parser)
+        parser = EPUBMeta::Parser.parse(path)
+        EPUBMeta::Models::Cover.new(parser)
       end
 
       its(:content_type) { should == 'image/jpeg' }
@@ -84,8 +84,8 @@ describe EPUBInfo::Models::Cover do
     context 'EPUB3 with cover' do
       subject do
         path = 'spec/support/binary/wasteland_epub3.epub'
-        parser = EPUBInfo::Parser.parse(path)
-        EPUBInfo::Models::Cover.new(parser)
+        parser = EPUBMeta::Parser.parse(path)
+        EPUBMeta::Models::Cover.new(parser)
       end
 
       its(:content_type) { should == 'image/jpeg' }

@@ -7,7 +7,7 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-require 'epubinfo'
+require 'epubmeta'
 
 RSpec.configure do |config|
   config.filter_run :focus => true

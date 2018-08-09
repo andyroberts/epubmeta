@@ -1,4 +1,4 @@
-module EPUBInfo
+module EPUBMeta
   module Models
     class Book
       # Titles, array of String instances ({http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.2.1 EPUB2 reference})
@@ -66,7 +66,7 @@ module EPUBInfo
       # @return [String]
       attr_accessor :version
 
-      # Should never be called directly, go through EPUBInfo.get
+      # Should never be called directly, go through EPUBMeta.get
       def initialize(parser)
         document = parser.metadata_document
         return if document.nil?
@@ -74,24 +74,24 @@ module EPUBInfo
         metadata = document.css('metadata')
         self.version = document.css('package')[0]['version']
         self.titles = metadata.xpath('.//title').map(&:content)
-        self.creators = metadata.xpath('.//creator').map {|c| EPUBInfo::Models::Person.new(c) }
+        self.creators = metadata.xpath('.//creator').map {|c| EPUBMeta::Models::Person.new(c) }
         self.subjects = metadata.xpath('.//subject').map(&:content)
         self.description = metadata.xpath('.//description').first.content rescue nil
         self.publisher = metadata.xpath('.//publisher').first.content rescue nil
-        self.contributors = metadata.xpath('.//contributor').map {|c| EPUBInfo::Models::Person.new(c) }
-        self.dates = metadata.xpath('.//date').map { |d| EPUBInfo::Models::Date.new(d) }
+        self.contributors = metadata.xpath('.//contributor').map {|c| EPUBMeta::Models::Person.new(c) }
+        self.dates = metadata.xpath('.//date').map { |d| EPUBMeta::Models::Date.new(d) }
         modified_date = metadata.xpath(".//meta[@property='dcterms:modified']").map do |d|
-          date = EPUBInfo::Models::Date.new(d)
+          date = EPUBMeta::Models::Date.new(d)
           date.event = 'modification'
           date
         end
         self.dates += modified_date;
-        self.identifiers = metadata.xpath('.//identifier').map { |i| EPUBInfo::Models::Identifier.new(i) }
+        self.identifiers = metadata.xpath('.//identifier').map { |i| EPUBMeta::Models::Identifier.new(i) }
         self.source = metadata.xpath('.//source').first.content rescue nil
         self.languages = metadata.xpath('.//language').map(&:content)
         self.rights = metadata.xpath('.//rights').first.content rescue nil
         self.drm_protected = parser.drm_protected?
-        self.cover = EPUBInfo::Models::Cover.new(parser)
+        self.cover = EPUBMeta::Models::Cover.new(parser)
       end
 
 

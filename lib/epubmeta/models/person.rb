@@ -1,4 +1,4 @@
-module EPUBInfo
+module EPUBMeta
   module Models
     class Person
       # Name ({http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.2.6 EPUB2 reference})
@@ -11,7 +11,7 @@ module EPUBInfo
       # @return [String]
       attr_accessor :role
 
-      # Should never be called directly, go through EPUBInfo.get
+      # Should never be called directly, go through EPUBMeta.get
       def initialize(node)
         self.name = node.content
         self.file_as = node.attribute('file-as').content rescue nil

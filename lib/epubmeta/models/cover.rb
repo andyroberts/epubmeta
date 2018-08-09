@@ -1,8 +1,8 @@
-module EPUBInfo
+module EPUBMeta
   module Models
     class Cover
       def self.new(parser)
-        return nil unless EPUBInfo::Parser === parser
+        return nil unless EPUBMeta::Parser === parser
 
         cover = super(parser)
 
@@ -47,7 +47,7 @@ module EPUBInfo
       #   file.size
       #   file.close!
       def tempfile(&block)
-        tempfile = Tempfile.new('epubinfo')
+        tempfile = Tempfile.new('epubmeta')
         tempfile.binmode
 
         cover_file = @parser.zip_file.read(zip_file_path)

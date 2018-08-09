@@ -1,4 +1,4 @@
-module EPUBInfo
+module EPUBMeta
   module Models
     class Identifier
       # Identifier ({http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.2.1 EPUB2 reference})
@@ -8,7 +8,7 @@ module EPUBInfo
       # @return [String]
       attr_accessor :scheme
 
-      # Should never be called directly, go through EPUBInfo.get
+      # Should never be called directly, go through EPUBMeta.get
       def initialize(node)
         self.identifier = node.content
         self.scheme = node.attribute('scheme').content rescue nil

@@ -14,13 +14,13 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "epubinfo"
-  gem.homepage = "http://github.com/chdorner/epubinfo"
+  gem.name = "epubmeta"
+  gem.homepage = "https://github.com/andyroberts/epubmeta"
   gem.license = "MIT"
   gem.summary = %Q{Extracts metadata information from EPUB files}
   gem.description = %Q{Supports EPUB2 and EPUB3 formats.}
-  gem.email = "christof@chdorner.com"
-  gem.authors = ["Christof Dorner"]
+  gem.email = "andy.roberts.uk@gmail.com"
+  gem.authors = ["Andrew Roberts"]
   gem.files = Dir.glob('lib/**/*.rb')
   # dependencies defined in Gemfile
 end
@@ -33,11 +33,11 @@ task :default => :spec
 
 require 'yard'
 YARD::Rake::YardocTask.new do |t|
-  t.files   = ['lib/**/*.rb', 'epubinfo.rb', '-', 'REAMDE.rdoc']
+  t.files   = ['lib/**/*.rb', 'epubmeta.rb', '-', 'REAMDE.rdoc']
   #t.options = ['--any', '--extra', '--opts']
 end
 
 Rake::Task['console'].clear
 task :console do
-  sh "irb -I lib -r 'epubinfo'"
+  sh "irb -I lib -r 'epubmeta'"
 end

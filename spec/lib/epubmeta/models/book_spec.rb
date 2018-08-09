@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe EPUBInfo::Models::Book do
+describe EPUBMeta::Models::Book do
   describe '#initialize' do
     context 'EPUB2' do
       subject do
-        parser = EPUBInfo::Parser.parse('spec/support/binary/metamorphosis_epub2.epub')
-        EPUBInfo::Models::Book.new(parser)
+        parser = EPUBMeta::Parser.parse('spec/support/binary/metamorphosis_epub2.epub')
+        EPUBMeta::Models::Book.new(parser)
       end
 
       its(:titles) { should == ['Metamorphosis'] }
@@ -16,7 +16,7 @@ describe EPUBInfo::Models::Book do
       its(:languages) { should == ['en'] }
       its(:rights) { should == 'Copyrighted. Read the copyright notice inside this book for details.' }
       its(:drm_protected?) { should be_false }
-      its(:cover) { should be_kind_of EPUBInfo::Models::Cover }
+      its(:cover) { should be_kind_of EPUBMeta::Models::Cover }
       its(:version) { should == '2.0' }
 
       context 'creators' do
@@ -26,7 +26,7 @@ describe EPUBInfo::Models::Book do
 
         it 'values are of type Person' do
           subject.creators.each do |creator|
-            creator.should be_kind_of EPUBInfo::Models::Person
+            creator.should be_kind_of EPUBMeta::Models::Person
           end
         end
       end
@@ -38,7 +38,7 @@ describe EPUBInfo::Models::Book do
 
         it 'values are of type Person' do
           subject.contributors.each do |contributor|
-            contributor.should be_kind_of EPUBInfo::Models::Person
+            contributor.should be_kind_of EPUBMeta::Models::Person
           end
         end
       end
@@ -50,7 +50,7 @@ describe EPUBInfo::Models::Book do
 
         it 'values are of type Date' do
           subject.dates.each do |date|
-            date.should be_kind_of EPUBInfo::Models::Date
+            date.should be_kind_of EPUBMeta::Models::Date
           end
         end
       end
@@ -62,7 +62,7 @@ describe EPUBInfo::Models::Book do
 
         it 'values are of type Identifier' do
           subject.identifiers.each do |identifier|
-            identifier.should be_kind_of EPUBInfo::Models::Identifier
+            identifier.should be_kind_of EPUBMeta::Models::Identifier
           end
         end
       end
@@ -70,8 +70,8 @@ describe EPUBInfo::Models::Book do
 
     context 'EPUB3' do
       subject do
-        parser = EPUBInfo::Parser.parse('spec/support/binary/wasteland_epub3.epub')
-        EPUBInfo::Models::Book.new(parser)
+        parser = EPUBMeta::Parser.parse('spec/support/binary/wasteland_epub3.epub')
+        EPUBMeta::Models::Book.new(parser)
       end
 
       its(:titles) { should == ['The Waste Land'] }
@@ -81,7 +81,7 @@ describe EPUBInfo::Models::Book do
       its(:source) { should == 'http://code.google.com/p/epub-samples/downloads/detail?name=wasteland-20120118.epub' }
       its(:languages) { should == ['en-US'] }
       its(:rights) { should == 'This work is shared with the public using the Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) license.' }
-      its(:cover) { should be_kind_of EPUBInfo::Models::Cover }
+      its(:cover) { should be_kind_of EPUBMeta::Models::Cover }
       its(:version) { should == '3.0' }
 
       context 'creators' do
@@ -91,7 +91,7 @@ describe EPUBInfo::Models::Book do
 
         it 'values are of type Person' do
           subject.creators.each do |creator|
-            creator.should be_kind_of EPUBInfo::Models::Person
+            creator.should be_kind_of EPUBMeta::Models::Person
           end
         end
       end
@@ -115,7 +115,7 @@ describe EPUBInfo::Models::Book do
 
         it 'values are of type Identifier' do
           subject.identifiers.each do |identifier|
-            identifier.should be_kind_of EPUBInfo::Models::Identifier
+            identifier.should be_kind_of EPUBMeta::Models::Identifier
           end
         end
       end
@@ -123,7 +123,7 @@ describe EPUBInfo::Models::Book do
   end
 
   context 'default values' do
-    subject { EPUBInfo::Models::Book.new(double(:metadata_document => nil)) }
+    subject { EPUBMeta::Models::Book.new(double(:metadata_document => nil)) }
 
     its(:titles) { should == [] }
     its(:creators) { should == [] }
@@ -137,7 +137,7 @@ describe EPUBInfo::Models::Book do
 
   describe '#to_hash' do
     context 'keys' do
-      subject { EPUBInfo::Models::Book.new(EPUBInfo::Parser.parse('spec/support/binary/metamorphosis_epub2.epub')).to_hash.keys }
+      subject { EPUBMeta::Models::Book.new(EPUBMeta::Parser.parse('spec/support/binary/metamorphosis_epub2.epub')).to_hash.keys }
       it { should include :titles }
       it { should include :creators }
       it { should include :subjects }

@@ -1,11 +1,11 @@
-module EPUBInfo
+module EPUBMeta
   class Parser
     attr_accessor :path, :metadata_document
 
     def self.parse(path)
-      epubinfo = EPUBInfo::Parser.new
-      epubinfo.path = path
-      epubinfo
+      epubmeta = EPUBMeta::Parser.new
+      epubmeta.path = path
+      epubmeta
     end
 
     def metadata_document

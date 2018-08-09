@@ -1,6 +1,6 @@
 require 'time'
 
-module EPUBInfo
+module EPUBMeta
   module Models
     class Date
       # Date ({http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.2.7 EPUB2 reference})
@@ -13,7 +13,7 @@ module EPUBInfo
       # @return String
       attr_accessor :event
 
-      # Should never be called directly, go through EPUBInfo.get
+      # Should never be called directly, go through EPUBMeta.get
       def initialize(node)
         self.date = Utils.parse_iso_8601_date(node.content) rescue nil
         self.date_str = node.content

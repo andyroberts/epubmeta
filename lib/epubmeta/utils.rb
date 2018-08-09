@@ -1,4 +1,4 @@
-module EPUBInfo
+module EPUBMeta
   module Utils
     def self.parse_iso_8601_date(date_str)
       case date_str.count('-')
