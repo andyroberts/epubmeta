@@ -57,7 +57,7 @@ GEM
     rspec-mocks (2.14.3)
     rubyzip (1.1.6)
     thread_safe (0.3.4)
-    yard (0.8.7.1)
+    yard (0.9.15)
 
 PLATFORMS
   ruby
@@ -68,4 +68,7 @@ DEPENDENCIES
   redcarpet
   rspec (~> 2.14.1)
   rubyzip (>= 1.0)
-  yard (~> 0.8.7)
+  yard (~> 0.9.11)
+
+BUNDLED WITH
+   1.16.1
