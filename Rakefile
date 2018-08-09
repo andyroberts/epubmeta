@@ -11,21 +11,6 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "epubmeta"
-  gem.homepage = "https://github.com/andyroberts/epubmeta"
-  gem.license = "MIT"
-  gem.summary = %Q{Extracts metadata information from EPUB files}
-  gem.description = %Q{Supports EPUB2 and EPUB3 formats.}
-  gem.email = "andy.roberts.uk@gmail.com"
-  gem.authors = ["Andrew Roberts"]
-  gem.files = Dir.glob('lib/**/*.rb')
-  # dependencies defined in Gemfile
-end
-Jeweler::RubygemsDotOrgTasks.new
-
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
