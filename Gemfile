@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rubyzip', '>= 1.2.1'
-gem 'nokogiri', '>= 1.4.2'
+gem 'nokogiri', '~> 1.8.2'
 
 # Add dependencies required to use your gem here.
 # Example:

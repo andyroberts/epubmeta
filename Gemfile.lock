@@ -2,9 +2,9 @@ GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.2.4)
-    mini_portile (0.6.0)
-    nokogiri (1.6.3.1)
-      mini_portile (= 0.6.0)
+    mini_portile2 (2.3.0)
+    nokogiri (1.8.4)
+      mini_portile2 (~> 2.3.0)
     redcarpet (2.2.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -21,7 +21,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  nokogiri (>= 1.4.2)
+  nokogiri (~> 1.8.2)
   redcarpet
   rspec (~> 2.14.1)
   rubyzip (>= 1.2.1)
