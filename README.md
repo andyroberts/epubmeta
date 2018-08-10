@@ -14,10 +14,14 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 
 ## Changelog
 
-**0.5.0** *August 9, 2018*
+**0.5.0** *August 10, 2018*
+
+* Convert module name EPUBMeta
+* Fix cover metadata parsing bug (credit: @Gizmokid2005)
+
+** < 0.5.0 **
 
 * Changelog for previous versions (pre-fork) can be found in the [epubinfo changelog](https://github.com/chdorner/epubinfo#changelog).
-
 
 ## Contributing to epubmeta
  
@@ -34,4 +38,3 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 Copyright (c) 2018 Andrew Roberts. 
 Copyright (c) 2012--2014 Christof Dorner. 
 See LICENSE.txt for further details.
-
