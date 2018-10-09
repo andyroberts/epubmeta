@@ -14,7 +14,7 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 
 ## Changelog
 
-**0.5.1** *August 10, 2018*
+**0.5.1** *October 09, 2018*
 
 * Update rubyzip dependency due to security vulnerability
 * Fix gemspec dependencies to use up-to-date versions (as found in the Gemfile)
