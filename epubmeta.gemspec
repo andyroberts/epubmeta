@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = "epubmeta"
-  s.version = "0.5.0"
+  s.version = "0.5.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andrew Roberts"]
-  s.date = "2018-08-10"
+  s.date = "2018-10-09"
   s.description = "Supports EPUB2 and EPUB3 formats."
   s.email = "andy.roberts.uk@gmail.com"
   s.extra_rdoc_files = [
@@ -26,34 +26,11 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/andyroberts/epubmeta"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "2.0.3"
   s.summary = "Extracts metadata information from EPUB files"
-
-  if s.respond_to? :specification_version then
-    s.specification_version = 4
-
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rubyzip>, [">= 1.0"])
-      s.add_runtime_dependency(%q<nokogiri>, [">= 1.4.2"])
-      s.add_development_dependency(%q<rspec>, ["~> 2.14.1"])
-      s.add_development_dependency(%q<yard>, ["~> 0.8.7"])
-      s.add_development_dependency(%q<jeweler>, ["~> 2.0.1"])
-      s.add_development_dependency(%q<redcarpet>, [">= 0"])
-    else
-      s.add_dependency(%q<rubyzip>, [">= 1.0"])
-      s.add_dependency(%q<nokogiri>, [">= 1.4.2"])
-      s.add_dependency(%q<rspec>, ["~> 2.14.1"])
-      s.add_dependency(%q<yard>, ["~> 0.8.7"])
-      s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
-      s.add_dependency(%q<redcarpet>, [">= 0"])
-    end
-  else
-    s.add_dependency(%q<rubyzip>, [">= 1.0"])
-    s.add_dependency(%q<nokogiri>, [">= 1.4.2"])
-    s.add_dependency(%q<rspec>, ["~> 2.14.1"])
-    s.add_dependency(%q<yard>, ["~> 0.8.7"])
-    s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
-    s.add_dependency(%q<redcarpet>, [">= 0"])
-  end
+  s.required_ruby_version = '>= 1.9.2'
+  s.add_dependency(%q<rubyzip>, [">= 1.2.2"])
+  s.add_dependency(%q<nokogiri>, [">= 1.8.2"])
+  s.add_dependency(%q<rspec>, ["~> 2.14.1"])
+  s.add_dependency(%q<yard>, ["~> 0.9.11"])
+  s.add_dependency(%q<redcarpet>, [">= 0"])
 end
-
