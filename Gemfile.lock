@@ -22,7 +22,7 @@ PLATFORMS
 DEPENDENCIES
   nokogiri (~> 1.8.2)
   rspec (~> 2.14.1)
-  rubyzip (>= 1.2.1)
+  rubyzip (>= 1.2.2)
   yard (~> 0.9.11)
 
 BUNDLED WITH
