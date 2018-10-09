@@ -5,7 +5,6 @@ GEM
     mini_portile2 (2.3.0)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
-    redcarpet (2.2.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -22,7 +21,6 @@ PLATFORMS
 
 DEPENDENCIES
   nokogiri (~> 1.8.2)
-  redcarpet
   rspec (~> 2.14.1)
   rubyzip (>= 1.2.1)
   yard (~> 0.9.11)

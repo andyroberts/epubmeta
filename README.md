@@ -14,6 +14,11 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 
 ## Changelog
 
+**0.5.2** *October 09, 2018*
+
+* Remove `redcarpet` dependency
+* Update gemspec to use correct runtime and development dependency syntax
+
 **0.5.1** *October 09, 2018*
 
 * Update rubyzip dependency due to security vulnerability
