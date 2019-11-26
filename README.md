@@ -14,6 +14,11 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 
 ## Changelog
 
+**0.5.3** *November 26, 2019*
+
+* Update nokogiri dependency to `>= 1.10.4` to mitigate CVE-2019-5477
+* Update yard dependency to `>= 0.9.20` to mitigate CVE-2019-1020001
+
 **0.5.2** *October 09, 2018*
 
 * Remove `redcarpet` dependency
@@ -45,6 +50,6 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 
 ## Copyright
 
-Copyright (c) 2018 Andrew Roberts. 
+Copyright (c) 2018--2019 Andrew Roberts. 
 Copyright (c) 2012--2014 Christof Dorner. 
 See LICENSE.txt for further details.
