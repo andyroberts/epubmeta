@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = "epubmeta"
-  s.version = "0.5.3"
+  s.version = "0.5.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andrew Roberts"]
-  s.date = "2019-11-26"
+  s.date = "2020-02-04"
   s.description = "Supports EPUB2 and EPUB3 formats."
   s.email = "andy.roberts.uk@gmail.com"
   s.extra_rdoc_files = [

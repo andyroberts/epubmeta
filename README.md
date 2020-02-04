@@ -14,6 +14,10 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 
 ## Changelog
 
+**0.5.4** *Februry 04, 2020*
+
+* Update rubyzip dependency to `~> 1.3.0` to mitigate CVE-2019-16892
+
 **0.5.3** *November 26, 2019*
 
 * Update nokogiri dependency to `>= 1.10.4` to mitigate CVE-2019-5477
