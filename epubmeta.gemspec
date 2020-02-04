@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.summary = "Extracts metadata information from EPUB files"
   s.required_ruby_version = '>= 1.9.2'
-  s.add_runtime_dependency 'rubyzip', '~> 1.2', '>= 1.2.2'
+  s.add_runtime_dependency 'rubyzip', '>= 1.2.2', '< 3.0'
   s.add_runtime_dependency 'nokogiri', '~> 1.10', '>= 1.10.4'
   s.add_development_dependency 'rspec', '~> 2.14', '>= 2.14.1'
   s.add_development_dependency 'yard', '~> 0.9.20'
