@@ -39,6 +39,12 @@ module EPUBMeta
       attr_accessor :identifiers
       def identifiers; @identifiers || []; end
 
+      # Fixed layout
+      # @return [Boolean]
+      attr_accessor :fixed_layout
+      def fixed_layout; @fixed_layout || false; end
+      alias :fixed_layout? :fixed_layout
+
       # Source ({http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.2.11 EPUB2 reference})
       # @return [String]
       attr_accessor :source
@@ -92,6 +98,13 @@ module EPUBMeta
         self.rights = metadata.xpath('.//rights').first.content rescue nil
         self.drm_protected = parser.drm_protected?
         self.cover = EPUBMeta::Models::Cover.new(parser)
+
+        rendition_element = metadata.xpath(".//meta[@property='rendition:layout']").first
+        if rendition_element.nil?
+          self.fixed_layout = false
+        else
+          self.fixed_layout = rendition_element.content == "pre-paginated"
+        end
       end
 
 
@@ -111,6 +124,7 @@ module EPUBMeta
           :languages => @languages,
           :rights => @rights,
           :drm_protected => @drm_protected,
+          :fixed_layout => @fixed_layout,
           :cover => @cover,
         }
       end

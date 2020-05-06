@@ -83,6 +83,7 @@ describe EPUBMeta::Models::Book do
       its(:rights) { should == 'This work is shared with the public using the Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) license.' }
       its(:cover) { should be_kind_of EPUBMeta::Models::Cover }
       its(:version) { should == '3.0' }
+      its(:fixed_layout) { should == false }
 
       context 'creators' do
         it 'count is 1' do
@@ -122,6 +123,15 @@ describe EPUBMeta::Models::Book do
     end
   end
 
+  context 'EPUB3 fixed layout' do
+    subject do
+      parser = EPUBMeta::Parser.parse('spec/support/binary/sherlock_holmes_epub3.epub')
+      EPUBMeta::Models::Book.new(parser)
+    end
+    its(:version) { should == '3.0' }
+    its(:fixed_layout) { should == true }
+  end
+
   context 'default values' do
     subject { EPUBMeta::Models::Book.new(double(:metadata_document => nil)) }
 
@@ -133,6 +143,7 @@ describe EPUBMeta::Models::Book do
     its(:identifiers) { should == [] }
     its(:languages) { should == [] }
     its(:cover) { should be_nil }
+    its(:fixed_layout) { should be_false }
   end
 
   describe '#to_hash' do
@@ -150,6 +161,8 @@ describe EPUBMeta::Models::Book do
       it { should include :languages }
       it { should include :rights }
       it { should include :cover }
+      it { should include :fixed_layout }
+      it { should include :drm_protected }
     end
   end
 end
