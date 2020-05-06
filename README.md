@@ -14,6 +14,11 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 
 ## Changelog
 
+**0.6.0** *May 06, 2020*
+
+* Support reading rendition property. Accessible via `Book.fixed_layout?`
+* Update nokogiti dependency to `>= 1.10.8` to mitigate CVE-2020-7595
+
 **0.5.4** *Februry 04, 2020*
 
 * Update rubyzip dependency to `~> 1.3.0` to mitigate CVE-2019-16892
@@ -54,6 +59,6 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 
 ## Copyright
 
-Copyright (c) 2018--2019 Andrew Roberts. 
+Copyright (c) 2018--2020 Andrew Roberts. 
 Copyright (c) 2012--2014 Christof Dorner. 
 See LICENSE.txt for further details.
