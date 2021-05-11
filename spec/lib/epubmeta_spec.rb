@@ -13,11 +13,10 @@ describe EPUBMeta do
       EPUBMeta.get(epub_path)
     end
 
-    it 'instanstiates a book model and returns it' do
+    it 'instantiates a book model and returns it' do
       book_mock = double
       EPUBMeta::Models::Book.should_receive(:new) { book_mock }
       EPUBMeta.get(epub_path).should == book_mock
     end
   end
 end
-

@@ -14,10 +14,14 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 
 ## Changelog
 
+**0.6.1** *May 11, 2021*
+
+* Update nokogiri dependency to `>= 1.11.0` to mitigate CVE-2020-26247
+
 **0.6.0** *May 06, 2020*
 
 * Support reading rendition property. Accessible via `Book.fixed_layout?`
-* Update nokogiti dependency to `>= 1.10.8` to mitigate CVE-2020-7595
+* Update nokogiri dependency to `>= 1.10.8` to mitigate CVE-2020-7595
 
 **0.5.4** *Februry 04, 2020*
 
