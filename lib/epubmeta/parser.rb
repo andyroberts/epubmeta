@@ -25,10 +25,12 @@ module EPUBMeta
     end
 
     def metadata_path
-      @metadata_path ||= begin
-        root_document.remove_namespaces!
-        root_document.css('container rootfiles rootfile:first-child').attribute('full-path').content
-      end
+      @metadata_path ||= get_full_path(root_document)
+    end
+
+    def get_full_path(container_root_doc)
+      container_root_doc.remove_namespaces!
+      container_root_doc.css('container rootfiles rootfile:first-child').attribute('full-path').content
     end
 
     private

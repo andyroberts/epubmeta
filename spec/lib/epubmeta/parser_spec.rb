@@ -26,6 +26,13 @@ describe EPUBMeta::Parser do
     parser.drm_protected?.should be_false
   end
 
+  it 'extracts the metadata path from container' do
+    doc = File.open("spec/support/xml/container_test01.xml") { |f| Nokogiri::XML(f) }
+    parser = EPUBMeta::Parser.new
+    metadata_path = parser.get_full_path(doc)
+    metadata_path.should == 'OPS/package.opf'
+  end
+
   context 'unsupported file types' do
     it 'raises NotAnEPUBFileError when zip but no epub file' do
       lambda do
@@ -44,4 +51,3 @@ describe EPUBMeta::Parser do
     end
   end
 end
-
