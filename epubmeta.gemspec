@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.summary = "Extracts metadata information from EPUB files"
   s.required_ruby_version = '>= 2.5.0'
   s.add_runtime_dependency 'rubyzip', '>= 1.2.2', '< 3.0'
-  s.add_runtime_dependency 'nokogiri', '>= 1.11.4'
+  s.add_runtime_dependency 'nokogiri', '~> 1.11', '>= 1.11.4'
   s.add_development_dependency 'rspec', '~> 2.14', '>= 2.14.1'
   s.add_development_dependency 'yard', '~> 0.9.20'
 end
