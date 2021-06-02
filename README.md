@@ -17,6 +17,7 @@ Which returns a `EPUBMeta::Models::Book` instance, please refer to the [API docu
 **0.6.2** *June 2, 2021*
 
 * Extract the container parser logic to make it easier to test.
+* Bump nokogiri to v1.11.4 to incorporate several security issues.
 
 **0.6.1** *May 11, 2021*
 
